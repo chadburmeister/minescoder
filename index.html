@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MinesCoder — AI web apps & MVPs for startups</title>
+<meta name="description" content="MinesCoder builds AI-powered web apps and MVPs for startups — School of Mines engineering rigor, shipped at AI speed. Built by Brendan Glen Burmeister.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2048%2048'%3E%3Crect%20width='48'%20height='48'%20rx='11'%20fill='%2313151a'/%3E%3Cpath%20d='M6 36 L18 16 L25 26 L31 14 L42 36 Z'%20fill='%23f4b81d'/%3E%3Ccircle%20cx='31'%20cy='14'%20r='3'%20fill='%23ffd76b'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#13151a;--bg2:#171a21;--card:#1c2029;--card2:#21262f;--line:#2b313d;
+    --gold:#f4b81d;--gold2:#ffd161;--gold-soft:rgba(244,184,29,.13);--steel:#5b8fce;
+    --text:#f5f6f8;--muted:#9aa3b2;--muted2:#6f7787;
+    --display:'Space Grotesk',-apple-system,BlinkMacSystemFont,sans-serif;
+    --body:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;--max:1140px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 26px}
+  h1,h2,h3,.display{font-family:var(--display);letter-spacing:-.02em;line-height:1.07;font-weight:700}
+  h1{font-size:clamp(38px,5.6vw,66px)}
+  h2{font-size:clamp(28px,3.6vw,42px)}
+  h3{font-size:20px;font-weight:600}
+  p{color:var(--muted)}
+  .gold{color:var(--gold)}
+  .eyebrow{display:inline-block;font-family:var(--body);font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);background:var(--gold-soft);border:1px solid rgba(244,184,29,.3);padding:7px 14px;border-radius:999px}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--body);font-weight:700;font-size:15.5px;padding:14px 26px;border-radius:12px;cursor:pointer;border:1px solid transparent;transition:transform .14s,box-shadow .14s,background .14s}
+  .btn-gold{background:var(--gold);color:#16140a;box-shadow:0 8px 26px rgba(244,184,29,.32)}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(244,184,29,.42)}
+  .btn-ghost{background:transparent;border-color:var(--line);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+  .btn-sm{padding:10px 18px;font-size:14px}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(19,21,26,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .logo{display:flex;align-items:center;gap:11px}
+  .logo .mark{width:34px;height:34px;flex:0 0 auto}
+  .logo .wm{font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:-.02em}
+  .logo .wm .c{color:var(--gold)}
+  .nav-links{display:flex;align-items:center;gap:30px}
+  .nav-links a{font-size:14.5px;font-weight:500;color:var(--muted)}
+  .nav-links a:hover{color:var(--text)}
+  @media(max-width:840px){.nav-links a:not(.cta){display:none}}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;padding:96px 0 90px}
+  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(900px 460px at 75% -120px,rgba(244,184,29,.16),transparent 60%),radial-gradient(700px 400px at 10% 10%,rgba(91,143,206,.12),transparent 55%);z-index:0}
+  .hero .wrap{position:relative;z-index:1}
+  .hero h1{max-width:840px;margin:22px 0 0}
+  .hero h1 .gold{color:var(--gold)}
+  .hero .sub{font-size:19px;max-width:600px;margin:22px 0 0;color:var(--muted)}
+  .hero .sub b{color:var(--text)}
+  .cta-row{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+  .madeby{display:flex;align-items:center;gap:10px;margin-top:34px;font-size:13.5px;color:var(--muted2)}
+  .madeby b{color:var(--muted)}
+  .madeby .dot{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+
+  /* stat strip */
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2)}
+  .strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:34px 26px}
+  @media(max-width:760px){.strip .wrap{grid-template-columns:repeat(2,1fr);gap:26px}}
+  .stat .n{font-family:var(--display);font-weight:700;font-size:30px;color:var(--gold)}
+  .stat .l{font-size:13.5px;color:var(--muted);margin-top:3px}
+
+  section{padding:88px 0}
+  .section-head{max-width:640px;margin-bottom:48px}
+  .section-head h2{margin-top:14px}
+  .section-head p{font-size:17px;margin-top:14px}
+
+  /* services */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  @media(max-width:820px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px}
+  .card .ic{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;margin-bottom:18px;background:var(--gold-soft);color:var(--gold)}
+  .card h3{margin-bottom:9px}
+  .card p{font-size:15px}
+
+  /* process */
+  .proc{background:var(--bg2)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:820px){.steps{grid-template-columns:1fr}}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px;position:relative}
+  .step .k{font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  .step h3{margin:12px 0 8px}
+  .step p{font-size:14.5px}
+  .step .num{position:absolute;top:24px;right:28px;font-family:var(--display);font-weight:700;font-size:34px;color:var(--line)}
+
+  /* founder */
+  .founder{display:grid;grid-template-columns:300px 1fr;gap:48px;align-items:center}
+  @media(max-width:820px){.founder{grid-template-columns:1fr;gap:28px}}
+  .founder .photo{aspect-ratio:1;border-radius:20px;background:linear-gradient(150deg,#21262f,#14161b);border:1px solid var(--line);display:grid;place-items:center;position:relative;overflow:hidden}
+  .founder .photo .peaks{width:62%;color:var(--gold);opacity:.9}
+  .founder .photo .cap{position:absolute;bottom:16px;font-size:12px;color:var(--muted2);letter-spacing:.04em}
+  .founder ul{list-style:none;margin-top:18px}
+  .founder li{position:relative;padding-left:28px;margin:11px 0;color:var(--muted);font-size:15.5px}
+  .founder li svg{position:absolute;left:0;top:3px}
+  .founder li b{color:var(--text)}
+
+  /* stack */
+  .stack{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+  .stack span{font-size:13.5px;font-weight:600;color:var(--muted);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 16px}
+
+  /* cta band */
+  .cta-band{background:linear-gradient(135deg,#f4b81d,#ffd161);color:#16140a;border-radius:26px;padding:58px 40px;text-align:center;box-shadow:0 24px 60px rgba(244,184,29,.28)}
+  .cta-band h2{color:#16140a}
+  .cta-band p{color:#3a3411;font-size:18px;margin:14px auto 0;max-width:540px;font-weight:500}
+  .cta-band .btn{background:#16140a;color:var(--gold);margin-top:28px}
+  .cta-band .btn:hover{transform:translateY(-2px)}
+
+  /* contact */
+  .contact{text-align:center}
+  .contact a.mail{font-family:var(--display);font-weight:600;font-size:clamp(22px,3vw,32px);color:var(--gold)}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;margin-top:8px}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:13.5px;color:var(--muted2)}
+  .foot .links{display:flex;gap:22px}
+  .foot .links a{color:var(--muted)}
+  .foot .links a:hover{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<!-- reusable mountain mark -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="peaks" viewBox="0 0 48 36"><path d="M2 34 L16 8 L24 20 L31 4 L46 34 Z" fill="currentColor"/><circle cx="31" cy="4.5" r="2.6" fill="#ffd76b"/></symbol>
+</defs></svg>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">
+      <svg class="mark" viewBox="0 0 48 48"><rect width="48" height="48" rx="11" fill="#1c2029"/><g transform="translate(4,7)"><use href="#peaks" width="40" height="30" style="color:#f4b81d"/></g></svg>
+      <span class="wm">Mines<span class="c">Coder</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#services">What we build</a>
+      <a href="#process">Process</a>
+      <a href="#founder">About</a>
+      <a href="#contact" class="btn btn-gold btn-sm cta">Start a project</a>
+    </nav>
+  </div>
+</header>
+<a id="top"></a>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">AI web apps &amp; MVPs for startups</span>
+    <h1>From raw idea to <span class="gold">shipped MVP</span> — forged with AI.</h1>
+    <p class="sub">MinesCoder builds AI-powered web apps and MVPs for founders — <b>School of Mines engineering rigor, shipped at AI speed.</b> Weeks, not quarters.</p>
+    <div class="cta-row">
+      <a href="#contact" class="btn btn-gold">Start a project →</a>
+      <a href="#process" class="btn btn-ghost">See how it works</a>
+    </div>
+    <div class="madeby">
+      <span class="dot"></span> Built by <b>Brendan Glen Burmeister</b> · Colorado School of Mines
+    </div>
+  </div>
+</section>
+
+<!-- STAT STRIP -->
+<div class="strip">
+  <div class="wrap">
+    <div class="stat"><div class="n">Weeks</div><div class="l">idea → working MVP</div></div>
+    <div class="stat"><div class="n">AI-native</div><div class="l">built with modern AI tooling</div></div>
+    <div class="stat"><div class="n">Full-stack</div><div class="l">design, build &amp; ship</div></div>
+    <div class="stat"><div class="n">Founder-led</div><div class="l">you work directly with the engineer</div></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">What we build</span>
+      <h2>Everything a startup needs to ship</h2>
+      <p>From a first MVP to AI features in your product — designed and engineered end-to-end.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M2 9h20M7 14h5"/></svg></div>
+        <h3>AI web apps</h3>
+        <p>Full-stack web applications with AI built into the core — auth, data, payments, and the smart features that make your product feel like magic.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg></div>
+        <h3>MVPs, fast</h3>
+        <p>Go from idea to a working, testable product in weeks. Real software in front of real users — so you can learn, raise, and iterate.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div>
+        <h3>AI integrations</h3>
+        <p>Add LLMs, agents, chat, and automations to an existing product — the right model, wired in cleanly, with guardrails and cost control.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3.6 9h16.8M3.6 15h16.8M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
+        <h3>High-converting sites</h3>
+        <p>Need a sharp marketing site or landing page too? Fast, modern, and built to convert — launched on the same stack as your app.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="proc" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">The process</span>
+      <h2>How we mine your idea into a product</h2>
+      <p>A tight, founder-friendly loop — clear scope, fast builds, real shipping.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">01</div><div class="k">Survey</div><h3>Map the claim</h3><p>We dig into your idea, define the smallest valuable MVP, and agree on scope, timeline, and price up front.</p></div>
+      <div class="step"><div class="num">02</div><div class="k">Forge</div><h3>Design &amp; build</h3><p>AI-accelerated development with weekly demos. You see real, working software the whole way — no black box.</p></div>
+      <div class="step"><div class="num">03</div><div class="k">Ship</div><h3>Launch &amp; iterate</h3><p>We deploy to production, hand over clean code, and keep iterating on real user feedback.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section id="founder">
+  <div class="wrap">
+    <div class="founder">
+      <div class="photo">
+        <svg class="peaks" viewBox="0 0 48 36"><use href="#peaks" width="48" height="36"/></svg>
+        <span class="cap">Brendan G. Burmeister</span>
+      </div>
+      <div>
+        <span class="eyebrow">Why MinesCoder</span>
+        <h2 style="margin-top:14px">Engineering rigor, meet AI speed</h2>
+        <p style="margin-top:12px">MinesCoder is led by <b style="color:var(--text)">Brendan Glen Burmeister</b>, a <b style="color:var(--text)">Colorado School of Mines</b> graduate. You get the discipline of a real engineering education paired with modern AI tooling that compresses months of work into weeks.</p>
+        <ul>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f4b81d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>Founder-led</b> — you work directly with the engineer building it.</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f4b81d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>Fixed scope &amp; timeline</b> — agreed before we start, no surprises.</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f4b81d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><b>You own the code</b> — clean, documented, yours to keep.</li>
+        </ul>
+        <div class="stack">
+          <span>React</span><span>Next.js</span><span>TypeScript</span><span>Python</span><span>OpenAI / Claude</span><span>Vercel</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section>
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Got an idea worth mining?</h2>
+      <p>Tell us what you're building. We'll scope an MVP and a timeline — usually within a day.</p>
+      <a href="#contact" class="btn">Start a project →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <span class="eyebrow">Start a project</span>
+    <h2 style="margin-top:14px">Let's build it.</h2>
+    <p style="margin-top:10px">Send a few lines about your idea and you'll hear back fast.</p>
+    <p style="margin-top:20px"><a class="mail" href="mailto:brendan@minescoder.com">brendan@minescoder.com</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div class="logo">
+      <svg class="mark" viewBox="0 0 48 48" style="width:28px;height:28px"><rect width="48" height="48" rx="11" fill="#1c2029"/><g transform="translate(4,7)"><use href="#peaks" width="40" height="30" style="color:#f4b81d"/></g></svg>
+      <span class="wm" style="font-size:17px">Mines<span class="c">Coder</span></span>
+    </div>
+    <div class="links">
+      <a href="#services">What we build</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div style="width:100%">© 2026 MinesCoder · AI web apps &amp; MVPs · Built by Brendan Glen Burmeister</div>
+  </div>
+</footer>
+
+</body>
+</html>
