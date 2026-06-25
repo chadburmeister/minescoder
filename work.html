@@ -109,6 +109,10 @@
   .pcard .act{font-size:13px;font-weight:600;padding:11px 12px;border-radius:10px;border:1px solid #2c3744;background:#10141a;color:#eef2f7;display:flex;align-items:center;justify-content:center;gap:7px}
   .pcard .act.g{background:linear-gradient(150deg,#f4b81d,#ffd161);color:#16140a;border-color:transparent}
 
+  /* screenshot visual */
+  .shot{width:100%;max-width:460px;border-radius:14px;border:1px solid #34404f;box-shadow:0 30px 70px rgba(0,0,0,.45);display:block}
+  .shotcap{margin-top:12px;font-size:12px;color:#8395a6;text-align:center}
+
   /* metric strip */
   .mstrip{border-top:1px solid var(--line);background:var(--bg2)}
   .mstrip .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:30px 26px}
@@ -301,6 +305,64 @@
           <div class="mstat"><div class="n">&lt; 1 day</div><div class="l">idea → live site</div></div>
           <div class="mstat"><div class="n">PayPal</div><div class="l">sponsor payments built in</div></div>
           <div class="mstat"><div class="n">Self-serve</div><div class="l">guest booking + sponsorships</div></div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- CASE STUDY: NLP Mastery -->
+<section style="padding-top:8px">
+  <div class="wrap">
+    <article class="cs">
+      <div class="cs-top">
+        <div class="cs-left">
+          <span class="cs-tag"><span class="live"></span> Live in production</span>
+          <h2>NLP Mastery</h2>
+          <p class="lede">An interactive learning workbook for a communications expert — <b>her recorded masterclass, turned into a trackable, exercise-driven app her students actually work through.</b></p>
+
+          <div class="blocks">
+            <div class="blk">
+              <div class="k">The brief</div>
+              <p>A communications trainer had hours of <b>recorded courses</b> but no way for students to learn by doing. She wanted the material reborn as a guided, interactive workbook.</p>
+            </div>
+            <div class="blk">
+              <div class="k">What we built</div>
+              <p>We <b>transcribed her recordings to text</b>, ran <b>multiple AI research agents</b> to structure and deepen the NLP curriculum, then shipped a full workbook app — chapters, exercises, progress tracking, and an admin view.</p>
+            </div>
+            <div class="blk">
+              <div class="k">Stack</div>
+              <div class="stack">
+                <span>Claude Code</span><span>Multi-agent research</span><span>Vercel</span>
+              </div>
+            </div>
+            <div class="blk">
+              <div class="k">The outcome</div>
+              <p>From raw recordings to a live app in <b>under a week</b> — <b>20 chapters, 65+ exercises, and 14 core skills</b>, with per-chapter progress tracking built in.</p>
+            </div>
+          </div>
+
+          <div class="cs-cta">
+            <a href="https://www.nlpmastery.net" target="_blank" rel="noopener" class="btn btn-gold">Visit NLP Mastery →</a>
+            <a href="#contact" class="btn btn-ghost">Build something like this</a>
+          </div>
+        </div>
+
+        <!-- visual: app screenshot -->
+        <div class="cs-right">
+          <div>
+            <img class="shot" src="nlpmastery.png" alt="NLP Mastery Workbook app — chapter list, welcome screen, and per-chapter progress tracking">
+            <div class="shotcap">The live NLP Mastery Workbook — chapters, exercises &amp; progress tracking</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- metric strip -->
+      <div class="mstrip">
+        <div class="grid">
+          <div class="mstat"><div class="n">&lt; 1 week</div><div class="l">recordings → live app</div></div>
+          <div class="mstat"><div class="n">20</div><div class="l">chapters built out</div></div>
+          <div class="mstat"><div class="n">65+</div><div class="l">interactive exercises</div></div>
         </div>
       </div>
     </article>
