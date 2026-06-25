@@ -131,6 +131,21 @@
   .podsite .ps .n{font-family:var(--display);font-weight:700;font-size:15px;color:#e95fb0}
   .podsite .ps .t{font-size:7.5px;color:#8f9bb3;margin-top:2px;letter-spacing:.02em}
 
+  /* BDR forecast app mock (light theme, matches the real app) */
+  .bdrapp{width:100%;max-width:470px;border-radius:14px;border:1px solid #e2e5ea;box-shadow:0 30px 70px rgba(0,0,0,.45);overflow:hidden;background:#f4f5f7;color:#1b1f27}
+  .bdrapp .top{display:flex;align-items:center;gap:11px;padding:14px 16px;background:#fff;border-bottom:1px solid #e7e9ee}
+  .bdrapp .top .lg{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,#ef7a2f 45%,#2f6fef);flex:0 0 auto}
+  .bdrapp .top .ttl{font-family:var(--display);font-weight:700;font-size:15px;color:#1b1f27;line-height:1.05}
+  .bdrapp .top .ttl small{display:block;font-family:var(--body);font-weight:500;font-size:9.5px;color:#8a93a3;letter-spacing:.01em;margin-top:2px}
+  .bdrapp .top .adm{margin-left:auto;font-size:9px;font-weight:700;color:#ef7a2f;border:1px solid #f6d9bf;background:#fdf1e7;padding:4px 9px;border-radius:6px}
+  .bdrapp .grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;padding:14px}
+  .bdrapp .c{background:#fff;border:1px solid #e7e9ee;border-radius:11px;padding:11px 12px}
+  .bdrapp .c.hot{background:#fdf1e7;border-color:#f6d9bf}
+  .bdrapp .c .lab{font-size:9px;color:#5b6473;font-weight:600;letter-spacing:.01em}
+  .bdrapp .c .num{font-family:var(--display);font-weight:700;font-size:23px;margin-top:5px;color:#11151c;line-height:1}
+  .bdrapp .c.hot .num{color:#ef7a2f}
+  .bdrapp .c .sub{font-size:8.5px;color:#d6453a;font-weight:600;margin-top:4px}
+
   /* screenshot visual */
   .shot{width:100%;max-width:460px;border-radius:14px;border:1px solid #34404f;box-shadow:0 30px 70px rgba(0,0,0,.45);display:block}
   .shotcap{margin-top:12px;font-size:12px;color:#8395a6;text-align:center}
@@ -279,6 +294,75 @@
           <div class="mstat"><div class="n">A few days</div><div class="l">idea → live product</div></div>
           <div class="mstat"><div class="n">Stripe</div><div class="l">payments live on launch</div></div>
           <div class="mstat"><div class="n">2 markets</div><div class="l">Austin &amp; Chicago at go-live</div></div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- CASE STUDY: BDR Forecast -->
+<section style="padding-top:8px">
+  <div class="wrap">
+    <article class="cs">
+      <div class="cs-top">
+        <div class="cs-left">
+          <span class="cs-tag"><span class="live"></span> Live in production</span>
+          <h2>BDR Forecast</h2>
+          <p class="lede">A weekly pipeline-forecasting app for a CRM &amp; data-management company — <b>where every BDR submits their PipeGen forecast and leaders track it against target in real time.</b></p>
+
+          <div class="blocks">
+            <div class="blk">
+              <div class="k">The brief</div>
+              <p>A growing BDR org was running its weekly forecast out of spreadsheets. They needed <b>one place for every rep to submit</b> S2 opps and pipeline — and for leaders to see the rollup instantly.</p>
+            </div>
+            <div class="blk">
+              <div class="k">What we built</div>
+              <p>A full forecasting app: <b>per-BDR weekly submissions</b>, automatic <b>team rollups vs. target</b>, attainment and ramping flags, submission tracking, week-over-week history, and an admin panel — behind secure, role-based login.</p>
+            </div>
+            <div class="blk">
+              <div class="k">Stack</div>
+              <div class="stack">
+                <span>Claude Code</span><span>Vercel</span><span>Role-based auth</span>
+              </div>
+            </div>
+            <div class="blk">
+              <div class="k">The outcome</div>
+              <p>Spreadsheets replaced by a live dashboard — forecasted pipeline vs. target, per-team progress, and submission status all visible at a glance, every week.</p>
+            </div>
+          </div>
+
+          <div class="cs-cta">
+            <a href="#contact" class="btn btn-gold">Build something like this</a>
+          </div>
+        </div>
+
+        <!-- visual: recreated BDR Forecast dashboard -->
+        <div class="cs-right">
+          <div>
+            <div class="bdrapp">
+              <div class="top">
+                <span class="lg"></span>
+                <div class="ttl">BDR Forecast<small>Week over week</small></div>
+                <span class="adm">Admin</span>
+              </div>
+              <div class="grid">
+                <div class="c"><div class="lab">Last Week S2 Opps</div><div class="num">12</div><div class="sub">30% of target</div></div>
+                <div class="c"><div class="lab">Last Week Pipeline</div><div class="num">$3.6M</div><div class="sub">35% of target</div></div>
+                <div class="c hot"><div class="lab">Forecasted S2 Opps</div><div class="num">21</div><div class="sub">19 below target</div></div>
+                <div class="c hot"><div class="lab">Forecasted Pipeline</div><div class="num">$4766K</div><div class="sub">$5403K below</div></div>
+              </div>
+            </div>
+            <div class="shotcap">Weekly PipeGen forecast — submissions, team rollups &amp; targets</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- metric strip -->
+      <div class="mstrip">
+        <div class="grid">
+          <div class="mstat"><div class="n">Per-BDR</div><div class="l">weekly PipeGen submissions</div></div>
+          <div class="mstat"><div class="n">Team rollups</div><div class="l">live targets &amp; attainment</div></div>
+          <div class="mstat"><div class="n">Admin + history</div><div class="l">roles &amp; week-over-week</div></div>
         </div>
       </div>
     </article>
