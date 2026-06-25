@@ -109,6 +109,28 @@
   .pcard .act{font-size:13px;font-weight:600;padding:11px 12px;border-radius:10px;border:1px solid #2c3744;background:#10141a;color:#eef2f7;display:flex;align-items:center;justify-content:center;gap:7px}
   .pcard .act.g{background:linear-gradient(150deg,#f4b81d,#ffd161);color:#16140a;border-color:transparent}
 
+  /* podcast site mock (matches live theaiforsalespodcast.com) */
+  .podsite{width:100%;max-width:470px;border-radius:16px;border:1px solid #1e2a44;box-shadow:0 30px 70px rgba(0,0,0,.5);overflow:hidden;background:radial-gradient(130% 90% at 62% -10%,#1c1f3c 0%,#0d1526 58%);padding:16px 18px 20px}
+  .podsite .pn{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .podsite .wm{font-family:var(--display);font-weight:700;font-size:12.5px;color:#fff}
+  .podsite .wm i{color:#e95fb0;font-style:normal}
+  .podsite .geton{font-size:9px;font-weight:700;color:#fff;background:linear-gradient(90deg,#ec4faa,#7a3fe6);padding:5px 11px;border-radius:999px;white-space:nowrap}
+  .podsite .ep{display:flex;align-items:center;gap:6px;width:max-content;margin:18px auto 0;font-size:8.5px;font-weight:700;letter-spacing:.07em;color:#7ee0b6;border:1px solid rgba(110,231,183,.3);background:rgba(18,38,33,.45);padding:4px 11px;border-radius:999px}
+  .podsite .ep .gd{width:6px;height:6px;border-radius:50%;background:#34d399;flex:0 0 auto}
+  .podsite .h{font-family:var(--display);font-weight:700;font-size:24px;line-height:1.04;margin-top:13px;text-align:center;color:#fff;letter-spacing:-.02em}
+  .podsite .h .g{background:linear-gradient(90deg,#ec4faa,#a14fd6,#7a3fe6);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .podsite .btns{display:flex;gap:8px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+  .podsite .b{font-size:11px;font-weight:700;padding:9px 15px;border-radius:999px}
+  .podsite .b.grad{background:linear-gradient(90deg,#ec4faa,#7a3fe6);color:#fff;box-shadow:0 8px 22px rgba(192,79,196,.35)}
+  .podsite .b.ghost{border:1px solid rgba(255,255,255,.18);color:#cdd5e3}
+  .podsite .rank{display:flex;align-items:center;gap:8px;justify-content:center;width:max-content;margin:16px auto 0;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:999px;padding:6px 14px}
+  .podsite .rank .t{font-size:10px;color:#fff;font-weight:700;line-height:1.2;text-align:left}
+  .podsite .rank .t small{display:block;font-weight:500;color:#9aa6bd;font-size:8.5px}
+  .podsite .pstats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
+  .podsite .ps{text-align:center;border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:9px 4px;background:rgba(255,255,255,.02)}
+  .podsite .ps .n{font-family:var(--display);font-weight:700;font-size:15px;color:#e95fb0}
+  .podsite .ps .t{font-size:7.5px;color:#8f9bb3;margin-top:2px;letter-spacing:.02em}
+
   /* screenshot visual */
   .shot{width:100%;max-width:460px;border-radius:14px;border:1px solid #34404f;box-shadow:0 30px 70px rgba(0,0,0,.45);display:block}
   .shotcap{margin-top:12px;font-size:12px;color:#8395a6;text-align:center}
@@ -300,16 +322,27 @@
           </div>
         </div>
 
-        <!-- visual: stylized podcast card -->
+        <!-- visual: mini of the live podcast front page -->
         <div class="cs-right">
-          <div class="pcard">
-            <div class="mic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v4M8 21h8"/></svg></div>
-            <div class="show">The AI for Sales Podcast</div>
-            <div class="tl">Time kills deals. AI kills time.</div>
-            <span class="badge2">★ #2 PODCAST · AI FOR SALES</span>
-            <div class="acts">
-              <div class="act g"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Book a guest spot</div>
-              <div class="act"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Become a sponsor · PayPal</div>
+          <div class="podsite">
+            <div class="pn">
+              <span class="wm">The AI for Sales Podcast<i>.</i></span>
+              <span class="geton">Get on the show</span>
+            </div>
+            <div class="ep"><span class="gd"></span> NOW 2 NEW EPISODES EVERY WEEK</div>
+            <div class="h">Time kills deals. <span class="g">AI kills time.</span></div>
+            <div class="btns">
+              <span class="b grad">Listen now →</span>
+              <span class="b ghost">Sponsor the show</span>
+            </div>
+            <div class="rank">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f4b81d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0zM7 4H5a2 2 0 0 0 0 4h2M17 4h2a2 2 0 0 1 0 4h-2"/></svg>
+              <div class="t">RANKED #2<small>Podcast for AI for Sales</small></div>
+            </div>
+            <div class="pstats">
+              <div class="ps"><div class="n">2,500+</div><div class="t">downloads / mo</div></div>
+              <div class="ps"><div class="n">4,000+</div><div class="t">subscribers</div></div>
+              <div class="ps"><div class="n">30,000+</div><div class="t">LinkedIn</div></div>
             </div>
           </div>
         </div>
